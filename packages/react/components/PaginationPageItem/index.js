@@ -2,15 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import SafeAnchor from '../SafeAnchor';
-
 const Wrapper = styled.li`
   display: block;
-  height: 3.5rem;
-  margin-left: 0.9rem;
-  margin-right: 0.9rem;
+  margin: 0 0.5rem;
   width: min-content;
-  min-width: 3.5rem;
 
   &:first-child {
     margin-left: 0;
@@ -20,12 +15,18 @@ const Wrapper = styled.li`
     margin-right: 0;
   }
 `;
-const IconText = styled.span``;
 const ScreenReaderOnly = styled.span`
   font-size: 0;
 `;
 
-const PageItem = ({ number, previous, next, between, selected, ...props }) => {
+const PaginationPageItem = ({
+  number,
+  previous,
+  next,
+  between,
+  selected,
+  ...props
+}) => {
   if (next || previous) {
     const label = next ? 'Next' : 'Previous';
 
@@ -33,9 +34,9 @@ const PageItem = ({ number, previous, next, between, selected, ...props }) => {
       <Wrapper {...props}>
         <button aria-label={label}>
           {next ? (
-            <IconText aria-hidden="true">&raquo;</IconText>
+            <span aria-hidden="true">&raquo;</span>
           ) : (
-            <IconText aria-hidden="true">&laquo;</IconText>
+            <span aria-hidden="true">&laquo;</span>
           )}
           <ScreenReaderOnly>{label}</ScreenReaderOnly>
         </button>
@@ -47,7 +48,7 @@ const PageItem = ({ number, previous, next, between, selected, ...props }) => {
     return (
       <Wrapper {...props}>
         <button disabled>
-          <IconText aria-hidden="true">&hellip;</IconText>
+          <span aria-hidden="true">&hellip;</span>
         </button>
       </Wrapper>
     );
@@ -69,7 +70,7 @@ const PageItem = ({ number, previous, next, between, selected, ...props }) => {
   );
 };
 
-PageItem.propTypes = {
+PaginationPageItem.propTypes = {
   previous: PropTypes.bool,
   next: PropTypes.bool,
   between: PropTypes.bool,
@@ -77,8 +78,8 @@ PageItem.propTypes = {
   number: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
-PageItem.defaultProps = {
+PaginationPageItem.defaultProps = {
   number: 0,
 };
 
-export default PageItem;
+export default PaginationPageItem;

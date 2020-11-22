@@ -10,7 +10,7 @@ export default {
     totalRecords: { control: 'number' },
     pageLimit: { control: 'number' },
     offset: { control: 'number' },
-    ariaLabel: { control: 'string' },
+    ariaLabel: { control: 'text' },
     pageNeighbours: {
       control: {
         type: 'select',

@@ -40,13 +40,12 @@ const range = (from, to, step = 1) => {
 };
 
 const Pagination = ({
+  ariaLabel,
   offset,
   onPageChanged,
-  pageNeighbours,
   pageLimit,
+  pageNeighbours,
   totalRecords,
-  ariaLabel,
-  ...props
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
@@ -196,7 +195,7 @@ const Pagination = ({
   const pages = fetchPageNumbers();
 
   return (
-    <div aria-label="Page navigation">
+    <div aria-label={ariaLabel}>
       <List>
         <PageItem onClick={handleMoveLeft} previous />
         {pages.map((page, index) => {
@@ -260,6 +259,7 @@ Pagination.propTypes = {
 };
 
 Pagination.defaultProps = {
+  ariaLabel: 'Page Navigation',
   pageLimit: 30,
   pageNeighbours: 1,
   onPageChanged: () => {},
