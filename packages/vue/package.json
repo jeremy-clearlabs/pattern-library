@@ -1,0 +1,12 @@
+{
+  "name": "vue-pattern-library",
+  "version": "0.1.0",
+  "description": "Vue UI Pattern Library",
+  "repository": "https://github.com/jeremy-clearlabs/pattern-library.git",
+  "author": "Jeremy Wong <jermspeaks@gmail.com>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT"
+}
